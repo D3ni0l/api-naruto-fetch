@@ -1,0 +1,16 @@
+.centralizacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+h1{
+font-family: Naruto;
+}
+
+img{
+    width:400px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}

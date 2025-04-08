@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Naruto;
+  src: url('./assets/njnaruto.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Naruto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 0 10%;
+}
