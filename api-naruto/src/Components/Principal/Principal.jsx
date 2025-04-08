@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react"; // hooks do react
-import "./Principal.css"; // importa o css do componente
+import { useEffect, useState } from "react"; 
+import "./Principal.css"; 
 
 export default function Principal() {
-  // estados para armazenar os personagens e o status de carregamento
+  // constantes para guardar as informacoes e o status de carregamento
   const [data, setData] = useState({ characters: [] });
   const [loading, setLoading] = useState(true);
 
-  // executa uma vez quando o componente carrega
   useEffect(() => {
     async function carregarPersonagens() {
       try {
-        // faz a requisição para a api
+        // faz a requisicao pra api
         const response = await fetch("https://dattebayo-api.onrender.com/characters");
         if (!response.ok) {
           throw new Error("erro ao buscar os dados");
@@ -19,25 +18,25 @@ export default function Principal() {
         // transforma a resposta em json
         const result = await response.json();
 
-        // mostra no console o que foi recebido
+        // mostra no console o que foi recebido pra ver se ta funcionando memo
         console.log("dados recebidos:", result);
 
-        // salva os dados no estado
+        // salva os dados 
         setData(result);
       } catch (error) {
         console.error("erro ao carregar personagens:", error);
       } finally {
-        // finaliza o carregamento (independente se deu erro ou não)
+        // finaliza o carregamento mesmo se der erro ou não
         setLoading(false);
       }
     }
 
-    carregarPersonagens(); // chama a função ao carregar a página
+    carregarPersonagens(); // chama a funcao 
   }, []);
 
   return (
     <section>
-      {/* se estiver carregando, mostra o texto */}
+      {/* se estiver carregando */}
       {loading ? (
         <p>Carregando...</p>
       ) : (
@@ -48,7 +47,7 @@ export default function Principal() {
             <div key={i} className="personagem">
               <h3>{personagem.name}</h3>
 
-              {/* imagem do personagem ou imagem padrão se não carregar */}
+              {/* imagem do personagem ou imagem default se a do personagem n carregar */}
               <img
                 src={personagem.images && personagem.images[0] ? personagem.images[0] : "/placeholder.png"}
                 alt={personagem.name}
@@ -57,7 +56,7 @@ export default function Principal() {
 
               <p><strong>Id:</strong> {personagem.id}</p>
 
-              {/* exibe a família, se houver */}
+              {/* exibe a família se tiver */}
               <p>
                 <strong>Família:</strong>{" "}
                 {personagem.family
@@ -65,7 +64,7 @@ export default function Principal() {
                   : "Desconhecida"}
               </p>
 
-              {/* mostra até 5 jutsus e "..." se tiver mais */}
+              {/* mostra até 5 jutsus*/}
               <p>
                 <strong>Jutsus:</strong>{" "}
                 {personagem.jutsu && personagem.jutsu.length > 0

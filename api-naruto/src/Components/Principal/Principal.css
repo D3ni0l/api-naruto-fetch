@@ -13,7 +13,7 @@ section {
   
   .personagens {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* cria colunas para os cards com no mínimo 220px cada */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* cria colunas para a exibicaodos cards */
     gap: 1.5rem;
   }
   
